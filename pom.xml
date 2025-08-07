@@ -71,6 +71,12 @@
             <artifactId>checkstyle-rules</artifactId>
             <version>4.9.3</version>
           </dependency>
+          <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest</artifactId>
+            <version>3.0</version>
+            <scope>test</scope>
+          </dependency>
         </dependencies>
         <configuration>
           <configLocation>com/github/ngeor/checkstyle.xml</configLocation>
