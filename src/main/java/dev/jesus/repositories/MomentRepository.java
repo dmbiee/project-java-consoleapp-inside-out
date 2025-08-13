@@ -1,5 +1,7 @@
 package dev.jesus.repositories;
 
+import java.util.List;
+
 import dev.jesus.contracts.InterfaceDatabase;
 import dev.jesus.db.MomentDatabase;
 import dev.jesus.models.Moment;
@@ -14,5 +16,9 @@ public class MomentRepository {
 
   public void StoreMoment(Moment moment) {
     db.store(moment);
+  }
+
+  public List<Moment> getAllMoments() {
+    return db.getAllMoments();
   }
 }

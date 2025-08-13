@@ -28,6 +28,8 @@ public class AddMomentView extends View {
 
     MomentDTO momentDTO = new MomentDTO(title, date, description, emotion);
     CONTROLLER.StoreMoment(momentDTO);
+
+    HomeView.printMainMenu();
   }
 
 }

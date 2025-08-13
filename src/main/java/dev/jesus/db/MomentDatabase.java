@@ -19,4 +19,9 @@ public class MomentDatabase implements InterfaceDatabase {
     moments.add(moment);
   }
 
+  @Override
+  public List<Moment> getAllMoments() {
+    return moments;
+  }
+
 }

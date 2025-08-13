@@ -1,6 +1,7 @@
 package dev.jesus.controllers;
 
 import dev.jesus.views.AddMomentView;
+import dev.jesus.views.ShowAllMomentsView;
 
 public class MainMenuController {
 
@@ -8,6 +9,8 @@ public class MainMenuController {
 
     if (option == 1)
       AddMomentView.printAddMoment();
-  }
 
+    if (option == 2)
+      ShowAllMomentsView.printAllMoments();
+  }
 }
