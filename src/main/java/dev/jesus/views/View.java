@@ -1,4 +1,4 @@
-package dev.jesus.controllers.views;
+package dev.jesus.views;
 
 import java.util.Scanner;
 
