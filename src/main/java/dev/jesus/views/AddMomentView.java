@@ -1,9 +1,13 @@
 package dev.jesus.views;
 
+import dev.jesus.controllers.MomentController;
 import dev.jesus.dtos.MomentDTO;
 import dev.jesus.models.EmotionEnum;
+import dev.jesus.singletons.MomentControllerSingleton;
 
 public class AddMomentView extends View {
+
+  private static MomentController CONTROLLER = MomentControllerSingleton.getInstance();
 
   public static void printAddMoment() {
 
@@ -23,6 +27,7 @@ public class AddMomentView extends View {
     EmotionEnum emotion = EmotionListView.printEmotionList();
 
     MomentDTO momentDTO = new MomentDTO(title, date, description, emotion);
+    CONTROLLER.StoreMoment(momentDTO);
   }
 
 }
