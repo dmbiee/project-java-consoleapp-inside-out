@@ -2,6 +2,7 @@ package dev.jesus.controllers;
 
 import dev.jesus.dtos.MomentDTO;
 import dev.jesus.mappers.MomentMapper;
+import dev.jesus.models.Moment;
 import dev.jesus.repositories.MomentRepository;
 import dev.jesus.singletons.MomentRepositorySingleton;
 
