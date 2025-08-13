@@ -1,5 +1,7 @@
 package dev.jesus.views;
 
+import dev.jesus.models.EmotionEnum;
+
 public class EmotionListView extends View {
 
   public static int printEmotionList() {
