@@ -4,7 +4,7 @@ import dev.jesus.models.EmotionEnum;
 
 public class EmotionListView extends View {
 
-  public static int printEmotionList() {
+  public static EmotionEnum printEmotionList() {
     int orderNum = 1;
 
     System.out.println("Select an emotion:");
@@ -15,9 +15,14 @@ public class EmotionListView extends View {
     }
 
     System.out.print("\nEnter your option: ");
-
     int option = SCANNER.nextInt();
-    return option;
+
+    if (option < 1 || option > EmotionEnum.values().length) {
+      System.out.println("Emoción inválida");
+      printEmotionList();
+    }
+
+    return EmotionEnum.values()[option - 1];
   }
 
 }

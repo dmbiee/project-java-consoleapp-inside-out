@@ -1,5 +1,8 @@
 package dev.jesus.views;
 
+import dev.jesus.dtos.MomentDTO;
+import dev.jesus.models.EmotionEnum;
+
 public class AddMomentView extends View {
 
   public static void printAddMoment() {
@@ -17,7 +20,9 @@ public class AddMomentView extends View {
     System.out.print(descriptionText);
     String description = SCANNER.next();
 
-    int emotionNumber = EmotionListView.printEmotionList();
+    EmotionEnum emotion = EmotionListView.printEmotionList();
+
+    MomentDTO momentDTO = new MomentDTO(title, date, description, emotion);
   }
 
 }
