@@ -8,4 +8,6 @@ public interface InterfaceDatabase {
   public void store(Moment moment);
 
   List<Moment> getAllMoments();
+
+  public void deleteMoment(int id);
 }
