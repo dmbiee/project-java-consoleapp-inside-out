@@ -18,11 +18,14 @@ public class EmotionListView extends View {
     int option = SCANNER.nextInt();
 
     if (option < 1 || option > EmotionEnum.values().length) {
-      System.out.println("Emoción inválida");
+      System.out.println("Number of emotion is wrong! Try again.");
+      option = 0;
       printEmotionList();
     }
 
-    return EmotionEnum.values()[option - 1];
+    EmotionEnum emotion = EmotionEnum.values()[option - 1];
+
+    return emotion;
   }
 
 }

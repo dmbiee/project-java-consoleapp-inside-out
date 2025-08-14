@@ -15,7 +15,8 @@ public class ShowAllMomentsView {
     List<MomentDTO> moments = CONTROLLER.GetDB();
 
     if (moments.isEmpty()) {
-      System.out.println("There aren't saved moments.");
+      System.out.println("There aren't saved moments. \n");
+      HomeView.printMainMenu();
       return;
     }
 
