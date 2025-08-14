@@ -16,7 +16,7 @@ public class ShowAllMomentsView {
 
     if (moments.isEmpty()) {
       System.out.println("There aren't saved moments.");
-      return;
+      HomeView.printMainMenu();
     }
 
     System.out.println("\nList of lived moments:");
