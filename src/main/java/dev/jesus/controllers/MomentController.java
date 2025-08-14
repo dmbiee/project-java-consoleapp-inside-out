@@ -38,4 +38,9 @@ public class MomentController {
     return momentDTOs;
   }
 
+  public void deleteMoment(int id) {
+    repository.deleteMoment(id);
+
+  }
+
 }

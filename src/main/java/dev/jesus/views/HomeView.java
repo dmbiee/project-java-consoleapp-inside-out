@@ -7,8 +7,10 @@ public class HomeView extends View {
   public static void printMainMenu() {
 
     String mainMenu = """
+        \n
         My diary:
-        1. Add momentum
+
+        1. Add moment
         2. See all available times
         3. Delete a moment
         4. Filter the moments

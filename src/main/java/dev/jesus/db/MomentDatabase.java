@@ -24,4 +24,9 @@ public class MomentDatabase implements InterfaceDatabase {
     return moments;
   }
 
+  @Override
+  public void deleteMoment(int id) {
+    moments.remove(id);
+  }
+
 }

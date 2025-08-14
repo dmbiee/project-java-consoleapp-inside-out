@@ -4,7 +4,7 @@ import dev.jesus.views.ExitMenuView;
 
 public class ExitMenuController {
     public static void exitFromTheProgramm() {
-        ExitMenuView.exitMessage();
+        ExitMenuView.printExitMessage();
         System.exit(0);
     }
 }
