@@ -3,7 +3,8 @@ package dev.jesus.controllers;
 import java.util.ArrayList;
 import java.util.List;
 
-import dev.jesus.dtos.MomentDTO;
+import dev.jesus.dtos.MomentResponseDTO;
+import dev.jesus.dtos.MomentRequestDTO;
 import dev.jesus.mappers.MomentMapper;
 import dev.jesus.models.Moment;
 import dev.jesus.repositories.MomentRepository;
@@ -17,17 +18,17 @@ public class MomentController {
     this.repository = MomentRepositorySingleton.getInstance();
   }
 
-  public void StoreMoment(MomentDTO momentDTO) {
+  public void StoreMoment(MomentRequestDTO momentDTO) {
     Moment momentToSave = MomentMapper.toEntity(momentDTO);
     repository.StoreMoment(momentToSave);
   }
 
-  public List<MomentDTO> GetDB() {
+  public List<MomentResponseDTO> GetDB() {
     List<Moment> moments = repository.getAllMoments();
-    List<MomentDTO> momentDTOs = new ArrayList<>();
+    List<MomentResponseDTO> momentDTOs = new ArrayList<>();
 
     for (Moment moment : moments) {
-      MomentDTO dto = new MomentDTO(
+      MomentResponseDTO dto = new MomentResponseDTO(
           moment.getTitle(),
           moment.getDate(),
           moment.getDescription(),
