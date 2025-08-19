@@ -12,5 +12,11 @@ public class MainMenuController {
 
     if (option == 2)
       ShowAllMomentsView.printAllMoments();
+
+    if (option == 3)
+      DeleteMomentView.printDeleteMoment();
+
+    if (option == 5)
+      ExitMenuController.exitFromTheProgram();
   }
 }

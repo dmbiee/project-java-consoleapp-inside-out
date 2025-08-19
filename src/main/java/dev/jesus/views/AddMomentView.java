@@ -1,7 +1,7 @@
 package dev.jesus.views;
 
 import dev.jesus.controllers.MomentController;
-import dev.jesus.dtos.MomentResponseDTO;
+import dev.jesus.dtos.MomentRequestDTO;
 import dev.jesus.models.EmotionEnum;
 import dev.jesus.singletons.MomentControllerSingleton;
 
@@ -26,8 +26,9 @@ public class AddMomentView extends View {
 
     EmotionEnum emotion = EmotionListView.printEmotionList();
 
-    MomentResponseDTO momentDTO = new MomentResponseDTO(title, date, description, emotion);
+    MomentRequestDTO momentDTO = new MomentRequestDTO(title, date, description, emotion);
     CONTROLLER.StoreMoment(momentDTO);
+    System.out.println("\nMoment lived added correctly.\n");
 
     HomeView.printMainMenu();
   }

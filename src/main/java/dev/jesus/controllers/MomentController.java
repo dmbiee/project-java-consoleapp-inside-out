@@ -18,17 +18,17 @@ public class MomentController {
     this.repository = MomentRepositorySingleton.getInstance();
   }
 
-  public void StoreMoment(MomentResponseDTO momentDTO) {
+  public void StoreMoment(MomentRequestDTO momentDTO) {
     Moment momentToSave = DtoToMomentMapper.toEntity(momentDTO);
     repository.StoreMoment(momentToSave);
   }
 
-  public List<MomentRequestDTO> GetDB() {
+  public List<MomentResponseDTO> GetDB() {
     List<Moment> moments = repository.getAllMoments();
-    List<MomentRequestDTO> momentDTOs = new ArrayList<>();
+    List<MomentResponseDTO> momentDTOs = new ArrayList<>();
 
     for (Moment moment : moments) {
-      MomentRequestDTO dto = new MomentRequestDTO(
+      MomentResponseDTO dto = new MomentResponseDTO(
           moment.getTitle(),
           moment.getDate(),
           moment.getDescription(),
@@ -37,6 +37,10 @@ public class MomentController {
     }
 
     return momentDTOs;
+  }
+
+  public void deleteMoment(int id) {
+    repository.deleteMoment(id);
   }
 
 }

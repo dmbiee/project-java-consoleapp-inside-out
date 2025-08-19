@@ -1,10 +1,12 @@
 package dev.jesus.dtos;
 
+import java.time.LocalDate;
+
 import dev.jesus.models.EmotionEnum;
 
 public record MomentResponseDTO(
-                String title,
-                String date,
-                String description,
-                EmotionEnum emotion) {
+    String title,
+    LocalDate date,
+    String description,
+    EmotionEnum emotion) {
 }

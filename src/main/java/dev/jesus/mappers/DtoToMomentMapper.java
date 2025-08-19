@@ -3,18 +3,18 @@ package dev.jesus.mappers;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-import dev.jesus.dtos.MomentResponseDTO;
+import dev.jesus.dtos.MomentRequestDTO;
 import dev.jesus.models.Moment;
 
 public class DtoToMomentMapper {
 
-  public static Moment toEntity(MomentResponseDTO dto) {
+  public static Moment toEntity(MomentRequestDTO dto) {
 
-    DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-    // String datedto = dto.date().formatted(dateFormat);
-    LocalDate dateDto = LocalDate.parse(dto.date(), dateFormat);
+    String patternCodeDate = "dd/MM/yyyy";
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern(patternCodeDate);
+    LocalDate dateto = LocalDate.parse(dto.date(), formatter);
 
-    Moment moment = new Moment(dto.title(), dateDto, dto.description(), dto.emotion());
+    Moment moment = new Moment(dto.title(), dateto, dto.description(), dto.emotion());
 
     return moment;
   }
