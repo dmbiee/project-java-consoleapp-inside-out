@@ -1,5 +1,6 @@
 package dev.jesus.db;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,6 +28,17 @@ public class MomentDatabase implements InterfaceDatabase {
   @Override
   public void deleteMoment(int id) {
     moments.remove(id);
+  }
+
+  @Override
+  public <T> List<Moment> filterBy(T filterCriteria) {
+    List<Moment> filteredList = new ArrayList<>();
+
+    if (filterCriteria instanceof LocalDate) {
+
+    }
+
+    return filteredList;
   }
 
 }

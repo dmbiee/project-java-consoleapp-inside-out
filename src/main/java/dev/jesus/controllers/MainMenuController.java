@@ -1,6 +1,7 @@
 package dev.jesus.controllers;
 
 import dev.jesus.views.AddMomentView;
+import dev.jesus.views.DeleteMomentView;
 import dev.jesus.views.ShowAllMomentsView;
 
 public class MainMenuController {

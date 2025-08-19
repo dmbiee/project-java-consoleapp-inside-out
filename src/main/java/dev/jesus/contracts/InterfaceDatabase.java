@@ -10,4 +10,6 @@ public interface InterfaceDatabase {
   List<Moment> getAllMoments();
 
   public void deleteMoment(int id);
+
+  <T> List<Moment> filterBy(T filterCriteria);
 }
