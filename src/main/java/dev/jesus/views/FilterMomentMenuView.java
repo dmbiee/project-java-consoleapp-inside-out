@@ -4,7 +4,6 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 import dev.jesus.controllers.FilterMenuController;
-import dev.jesus.models.EmotionEnum;
 
 public class FilterMomentMenuView extends View {
   public static void printFilterMenu() {
