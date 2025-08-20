@@ -6,6 +6,7 @@ import java.util.List;
 import dev.jesus.dtos.MomentResponseDTO;
 import dev.jesus.dtos.MomentRequestDTO;
 import dev.jesus.mappers.DtoToMomentMapper;
+import dev.jesus.mappers.MomentToDtoMapper;
 import dev.jesus.models.Moment;
 import dev.jesus.repositories.MomentRepository;
 import dev.jesus.singletons.MomentRepositorySingleton;
@@ -25,18 +26,7 @@ public class MomentController {
 
   public List<MomentResponseDTO> GetDB() {
     List<Moment> moments = repository.getAllMoments();
-    List<MomentResponseDTO> momentDTOs = new ArrayList<>();
-
-    for (Moment moment : moments) {
-      MomentResponseDTO dto = new MomentResponseDTO(
-          moment.getTitle(),
-          moment.getDate(),
-          moment.getDescription(),
-          moment.getEmotion());
-      momentDTOs.add(dto);
-    }
-
-    return momentDTOs;
+    return MomentToDtoMapper.toDtoList(moments);
   }
 
   public void deleteMoment(int id) {
