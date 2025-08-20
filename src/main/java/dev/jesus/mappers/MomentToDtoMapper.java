@@ -13,7 +13,8 @@ public class MomentToDtoMapper {
         moment.getTitle(),
         moment.getDate(),
         moment.getDescription(),
-        moment.getEmotion());
+        moment.getEmotion(),
+        moment.isPositive());
   }
 
   public static List<MomentResponseDTO> toDtoList(List<Moment> moments) {

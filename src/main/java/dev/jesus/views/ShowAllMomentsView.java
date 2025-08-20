@@ -30,12 +30,13 @@ public class ShowAllMomentsView {
       int day = date.getDayOfMonth();
 
       System.out.print("""
-          %s. It happened in: %d/%d/%d. Title: %s. Description: %s. Emotion: %s.
+          %s. It happened in: %d/%d/%d. Title: %s. Description: %s. Emotion: %s %s.
           """.formatted(
           momentIndex,
           day, month, year,
           moment.title(),
           moment.description(),
+          moment.isPositive(),
           moment.emotion()));
 
       momentIndex++;
