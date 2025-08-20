@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dev.jesus.contracts.InterfaceDatabase;
+import dev.jesus.models.EmotionEnum;
 import dev.jesus.models.Moment;
 
 public class MomentDatabase implements InterfaceDatabase {
@@ -34,11 +35,19 @@ public class MomentDatabase implements InterfaceDatabase {
   public <T> List<Moment> filterBy(T filterCriteria) {
     List<Moment> filteredList = new ArrayList<>();
 
-    if (filterCriteria instanceof LocalDate) {
+    for (Moment moment : moments) {
+      if (filterCriteria instanceof LocalDate dateCriteria) {
+        if (moment.getDate().equals(dateCriteria))
+          filteredList.add(moment);
+      }
+
+      if (filterCriteria instanceof EmotionEnum emotionCriteria) {
+        if (moment.getEmotion().equals(emotionCriteria))
+          filteredList.add(moment);
+      }
 
     }
 
     return filteredList;
   }
-
 }

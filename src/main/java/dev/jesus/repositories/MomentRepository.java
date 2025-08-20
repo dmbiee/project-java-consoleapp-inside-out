@@ -25,4 +25,8 @@ public class MomentRepository {
   public void deleteMoment(int id) {
     db.deleteMoment(id - 1);
   }
+
+  public <T> List<Moment> filterBy(T filterCriteria) {
+    return db.filterBy(filterCriteria);
+  }
 }

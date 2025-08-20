@@ -1,6 +1,5 @@
 package dev.jesus.mappers;
 
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -19,7 +18,7 @@ public class MomentToDtoMapper {
 
   public static List<MomentResponseDTO> toDtoList(List<Moment> moments) {
     return moments.stream()
-        .map(MomentToDtoMapper::toDto)
+        .map(MomentToDtoMapper::toDto) // equals to .map(moment -> MomentToDtoMapper.toDto(moment))
         .collect(Collectors.toList());
   }
 }
