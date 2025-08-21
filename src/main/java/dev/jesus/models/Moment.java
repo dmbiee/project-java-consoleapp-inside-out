@@ -1,5 +1,8 @@
 package dev.jesus.models;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.time.Instant;
 import java.time.LocalDate;
 import java.util.UUID;
 
@@ -46,7 +49,31 @@ public class Moment {
   }
 
   private void setId() {
-    this.id = "M-" + UUID.randomUUID();
+
+    long utcMillis = Instant.now().toEpochMilli();
+    String data = utcMillis + "|" + title + "|" + date.toString() + "|" + description + "|" + emotion + "|"
+        + isPositive;
+
+    try {
+
+      byte[] dataBytes = data.getBytes();
+      MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+      byte[] hashBytes = messageDigest.digest(dataBytes);
+
+      StringBuilder sb = new StringBuilder();
+      for (int i = 0; i < 4; i++) {
+        sb.append(String.format("%02x", hashBytes[i]));
+      }
+
+      String id = sb.toString();
+      System.out.println(id);
+
+      this.id = id;
+
+    } catch (Exception e) {
+      throw new RuntimeException("Failed to generate ID", e);
+    }
+    // this.id = "M-" + UUID.randomUUID();
   }
 
   public void setTitle(String title) {
