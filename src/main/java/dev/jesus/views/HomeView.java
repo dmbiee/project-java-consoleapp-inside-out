@@ -12,7 +12,8 @@ public class HomeView extends View {
         2. See all available times
         3. Delete a moment
         4. Filter the moments
-        5. Exit
+        5. Export to CSV
+        6. Exit
 
         Select an option:  """;
 
