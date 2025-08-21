@@ -9,7 +9,7 @@ public interface InterfaceDatabase {
 
   List<Moment> getAllMoments();
 
-  public void deleteMoment(int id);
+  public void deleteMoment(String id);
 
   <T> List<Moment> filterBy(T filterCriteria);
 }

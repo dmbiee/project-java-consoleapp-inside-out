@@ -10,6 +10,7 @@ public class MomentToDtoMapper {
 
   public static MomentResponseDTO toDto(Moment moment) {
     return new MomentResponseDTO(
+        moment.getId(),
         moment.getTitle(),
         moment.getDate(),
         moment.getDescription(),

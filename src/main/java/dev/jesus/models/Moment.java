@@ -1,9 +1,11 @@
 package dev.jesus.models;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 public class Moment {
 
+  private String id;
   private String title;
   private LocalDate date;
   private String description;
@@ -16,6 +18,11 @@ public class Moment {
     this.description = description;
     this.emotion = emotion;
     this.isPositive = isPositive;
+    this.setId();
+  }
+
+  public String getId() {
+    return id;
   }
 
   public boolean isPositive() {
@@ -36,5 +43,29 @@ public class Moment {
 
   public EmotionEnum getEmotion() {
     return emotion;
+  }
+
+  private void setId() {
+    this.id = "M-" + UUID.randomUUID();
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  public void setDate(LocalDate date) {
+    this.date = date;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public void setEmotion(EmotionEnum emotion) {
+    this.emotion = emotion;
+  }
+
+  public void setPositive(boolean isPositive) {
+    this.isPositive = isPositive;
   }
 }

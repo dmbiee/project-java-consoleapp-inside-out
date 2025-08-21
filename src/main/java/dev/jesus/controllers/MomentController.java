@@ -31,7 +31,7 @@ public class MomentController {
     return MomentToDtoMapper.toDtoList(moments);
   }
 
-  public void deleteMoment(int id) {
+  public void deleteMoment(String id) {
     repository.deleteMoment(id);
   }
 
