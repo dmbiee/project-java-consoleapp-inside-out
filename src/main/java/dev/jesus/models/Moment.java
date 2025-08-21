@@ -1,10 +1,8 @@
 package dev.jesus.models;
 
 import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.time.Instant;
 import java.time.LocalDate;
-import java.util.UUID;
 
 public class Moment {
 
