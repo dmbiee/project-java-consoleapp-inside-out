@@ -20,6 +20,13 @@ public class FilterMenuController {
       LocalDate localDate = FilterMomentMenuView.askForDay();
       FilterMomentView.printFilteredList(localDate);
     }
+    if (option == 3) {
+      FilterMomentView.printFilteredList(true); // Positivos
+    }
+
+    if (option == 4) {
+      FilterMomentView.printFilteredList(false); // Negativos
+    }
   }
 
 }

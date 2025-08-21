@@ -44,7 +44,6 @@ public class FilterMomentView extends View {
   }
 
   public static void printFilteredList(LocalDate localDate) {
-    int momentIndex = 1;
     List<MomentResponseDTO> moments = CONTROLLER.filterByDate(localDate);
 
     if (moments.isEmpty()) {
@@ -64,13 +63,43 @@ public class FilterMomentView extends View {
       System.out.print("""
           %s. It happened in: %d/%d/%d. Title: %s. Description: %s. Emotion: %s.
           """.formatted(
-          momentIndex,
+          moment.id(),
           day, month, year,
           moment.title(),
           moment.description(),
           moment.emotion()));
+    }
 
-      momentIndex++;
+    System.out.println("");
+    HomeView.printMainMenu();
+  }
+
+  public static void printFilteredList(Boolean bool) {
+    List<MomentResponseDTO> moments = CONTROLLER.filterByIsPositive(bool);
+    String isPositive = bool ? "positive" : "negative";
+
+    if (moments.isEmpty()) {
+      System.out.println("There aren't saved moments. \n");
+      HomeView.printMainMenu();
+      return;
+    }
+
+    System.out.println("\nList of lived moments filtered by %s emotion: ".formatted(isPositive));
+    for (MomentResponseDTO moment : moments) {
+
+      LocalDate date = moment.date();
+      int year = date.getYear();
+      int month = date.getMonthValue();
+      int day = date.getDayOfMonth();
+
+      System.out.print("""
+          %s. It happened in: %d/%d/%d. Title: %s. Description: %s. Emotion: %s.
+          """.formatted(
+          moment.id(),
+          day, month, year,
+          moment.title(),
+          moment.description(),
+          moment.emotion()));
     }
 
     System.out.println("");
