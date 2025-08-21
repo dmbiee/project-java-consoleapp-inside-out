@@ -3,6 +3,7 @@ package dev.jesus.models;
 import java.security.MessageDigest;
 import java.time.Instant;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class Moment {
 
@@ -12,6 +13,8 @@ public class Moment {
   private String description;
   private EmotionEnum emotion;
   private boolean isPositive;
+  private LocalDateTime recordDate;
+  private LocalDateTime updateDate;
 
   public Moment(String title, LocalDate date, String description, EmotionEnum emotion, boolean isPositive) {
     this.title = title;
@@ -20,6 +23,22 @@ public class Moment {
     this.emotion = emotion;
     this.isPositive = isPositive;
     this.setId();
+  }
+
+  public LocalDateTime getUpdateDate() {
+    return updateDate;
+  }
+
+  public void setUpdateDate(LocalDateTime updateDate) {
+    this.updateDate = updateDate;
+  }
+
+  public LocalDateTime getRecordDate() {
+    return recordDate;
+  }
+
+  public void setRecordDate(LocalDateTime recordDate) {
+    this.recordDate = recordDate;
   }
 
   public String getId() {

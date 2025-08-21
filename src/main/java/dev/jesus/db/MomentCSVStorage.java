@@ -8,7 +8,7 @@ import dev.jesus.models.Moment;
 
 public class MomentCSVStorage {
 
-  private static final String DELIMETER = ";";
+  private static final String DELIMITER = ";";
   private static final String NEW_LINE = "\n";
   private static final String HEADER = "ID;Title;Date;Description;Emotion;IsPositive";
 
@@ -19,12 +19,14 @@ public class MomentCSVStorage {
 
       for (Moment moment : moments) {
         StringBuilder sb = new StringBuilder();
-        sb.append(moment.getId()).append(DELIMETER)
-            .append(moment.getTitle()).append(DELIMETER)
-            .append(moment.getDate()).append(DELIMETER)
-            .append(moment.getDescription()).append(DELIMETER)
-            .append(moment.getEmotion()).append(DELIMETER)
-            .append(moment.isPositive()).append(DELIMETER);
+        sb.append(moment.getId()).append(DELIMITER)
+            .append(moment.getTitle()).append(DELIMITER)
+            .append(moment.getDate()).append(DELIMITER)
+            .append(moment.getDescription()).append(DELIMITER)
+            .append(moment.getEmotion()).append(DELIMITER)
+            .append(moment.isPositive()).append(DELIMITER)
+            .append(moment.getRecordDate()).append(DELIMITER)
+            .append(moment.getUpdateDate());
 
         writer.write(sb.toString());
         writer.write(NEW_LINE);

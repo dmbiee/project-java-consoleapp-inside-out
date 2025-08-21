@@ -1,6 +1,7 @@
 package dev.jesus.db;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,6 +19,7 @@ public class MomentDatabase implements InterfaceDatabase {
 
   @Override
   public void store(Moment moment) {
+    moment.setRecordDate(LocalDateTime.now());
     moments.add(moment);
   }
 
