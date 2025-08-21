@@ -46,6 +46,11 @@ public class MomentDatabase implements InterfaceDatabase {
           filteredList.add(moment);
       }
 
+      if (filterCriteria instanceof Boolean positiveCriteria) {
+        if (moment.isPositive() == positiveCriteria)
+          filteredList.add(moment);
+      }
+
     }
 
     return filteredList;
