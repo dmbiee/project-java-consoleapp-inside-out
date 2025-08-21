@@ -3,6 +3,7 @@ package dev.jesus.controllers;
 import dev.jesus.views.AddMomentView;
 import dev.jesus.views.DeleteMomentView;
 import dev.jesus.views.FilterMomentMenuView;
+import dev.jesus.views.MomentExportCSVView;
 import dev.jesus.views.ShowAllMomentsView;
 
 public class MainMenuController {
@@ -22,6 +23,9 @@ public class MainMenuController {
       FilterMomentMenuView.printFilterMenu();
 
     if (option == 5)
+      MomentExportCSVView.printCSVinfo();
+
+    if (option == 6)
       ExitMenuController.exitFromTheProgram();
   }
 }
