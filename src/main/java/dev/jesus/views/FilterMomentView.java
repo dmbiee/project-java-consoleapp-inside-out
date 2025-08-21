@@ -23,20 +23,7 @@ public class FilterMomentView extends View {
 
     System.out.println("\nList of lived moments filtered by %s emotion: ".formatted(emotion));
     for (MomentResponseDTO moment : moments) {
-
-      LocalDate date = moment.date();
-      int year = date.getYear();
-      int month = date.getMonthValue();
-      int day = date.getDayOfMonth();
-
-      System.out.print("""
-          %s. It happened in: %d/%d/%d. Title: %s. Description: %s. Emotion: %s.
-          """.formatted(
-          moment.id(),
-          day, month, year,
-          moment.title(),
-          moment.description(),
-          moment.emotion()));
+      PrintMoment.printMoment(moment);
     }
 
     System.out.println("");
@@ -54,20 +41,7 @@ public class FilterMomentView extends View {
 
     System.out.println("\nList of lived moments filtered by %s day: ".formatted(localDate));
     for (MomentResponseDTO moment : moments) {
-
-      LocalDate date = moment.date();
-      int year = date.getYear();
-      int month = date.getMonthValue();
-      int day = date.getDayOfMonth();
-
-      System.out.print("""
-          %s. It happened in: %d/%d/%d. Title: %s. Description: %s. Emotion: %s.
-          """.formatted(
-          moment.id(),
-          day, month, year,
-          moment.title(),
-          moment.description(),
-          moment.emotion()));
+      PrintMoment.printMoment(moment);
     }
 
     System.out.println("");
@@ -86,20 +60,7 @@ public class FilterMomentView extends View {
 
     System.out.println("\nList of lived moments filtered by %s emotion: ".formatted(isPositive));
     for (MomentResponseDTO moment : moments) {
-
-      LocalDate date = moment.date();
-      int year = date.getYear();
-      int month = date.getMonthValue();
-      int day = date.getDayOfMonth();
-
-      System.out.print("""
-          %s. It happened in: %d/%d/%d. Title: %s. Description: %s. Emotion: %s.
-          """.formatted(
-          moment.id(),
-          day, month, year,
-          moment.title(),
-          moment.description(),
-          moment.emotion()));
+      PrintMoment.printMoment(moment);
     }
 
     System.out.println("");
