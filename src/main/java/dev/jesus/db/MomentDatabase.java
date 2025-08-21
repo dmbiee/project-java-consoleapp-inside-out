@@ -27,8 +27,8 @@ public class MomentDatabase implements InterfaceDatabase {
   }
 
   @Override
-  public void deleteMoment(int id) {
-    moments.remove(id);
+  public void deleteMoment(String id) {
+    moments.removeIf(moment -> moment.getId().equals(id));
   }
 
   @Override

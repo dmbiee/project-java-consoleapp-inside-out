@@ -14,6 +14,7 @@ public class AddMomentView extends View {
     String titleText = "Enter the title: ";
     String dateText = "Enter the date (dd/mm/year): ";
     String descriptionText = "Enter the description: ";
+    String isPositiveText = "Moment was Positive (Y/N): ";
 
     System.out.print(titleText);
     String title = SCANNER.next();
@@ -24,9 +25,12 @@ public class AddMomentView extends View {
     System.out.print(descriptionText);
     String description = SCANNER.next();
 
+    System.out.print(isPositiveText);
+    String isPositive = SCANNER.next();
+
     EmotionEnum emotion = EmotionListView.printEmotionList();
 
-    MomentRequestDTO momentDTO = new MomentRequestDTO(title, date, description, emotion);
+    MomentRequestDTO momentDTO = new MomentRequestDTO(title, date, description, emotion, isPositive);
     CONTROLLER.StoreMoment(momentDTO);
     System.out.println("\nMoment lived added correctly.\n");
 

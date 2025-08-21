@@ -13,7 +13,6 @@ public class FilterMomentView extends View {
   private static MomentController CONTROLLER = MomentControllerSingleton.getInstance();
 
   public static void printFilteredList(EmotionEnum emotion) {
-    int momentIndex = 1;
     List<MomentResponseDTO> moments = CONTROLLER.filterByEmotion(emotion);
 
     if (moments.isEmpty()) {
@@ -33,13 +32,11 @@ public class FilterMomentView extends View {
       System.out.print("""
           %s. It happened in: %d/%d/%d. Title: %s. Description: %s. Emotion: %s.
           """.formatted(
-          momentIndex,
+          moment.id(),
           day, month, year,
           moment.title(),
           moment.description(),
           moment.emotion()));
-
-      momentIndex++;
     }
 
     System.out.println("");

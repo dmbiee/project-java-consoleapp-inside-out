@@ -10,8 +10,7 @@ public class DeleteMomentView extends View {
   public static void printDeleteMoment() {
     System.out.print("\nEnter the identifier of the moment: ");
 
-    int option = SCANNER.nextInt();
-    int idMoment = option - 1;
+    String idMoment = SCANNER.next();
 
     CONTROLLER.deleteMoment(idMoment);
 

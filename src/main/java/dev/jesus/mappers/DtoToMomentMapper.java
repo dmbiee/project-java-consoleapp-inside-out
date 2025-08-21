@@ -12,9 +12,13 @@ public class DtoToMomentMapper {
 
     String patternCodeDate = "dd/MM/yyyy";
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern(patternCodeDate);
-    LocalDate dateto = LocalDate.parse(dto.date(), formatter);
+    LocalDate datedto = LocalDate.parse(dto.date(), formatter);
 
-    Moment moment = new Moment(dto.title(), dateto, dto.description(), dto.emotion());
+    boolean isPositivebool = false;
+    if (dto.isPositive().equalsIgnoreCase("y") || dto.isPositive().equalsIgnoreCase("yes"))
+      isPositivebool = true;
+
+    Moment moment = new Moment(dto.title(), datedto, dto.description(), dto.emotion(), isPositivebool);
 
     return moment;
   }

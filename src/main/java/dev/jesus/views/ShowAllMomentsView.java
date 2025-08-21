@@ -12,7 +12,6 @@ public class ShowAllMomentsView {
   private static MomentController CONTROLLER = MomentControllerSingleton.getInstance();
 
   public static void printAllMoments() {
-    int momentIndex = 1;
     List<MomentResponseDTO> moments = CONTROLLER.GetDB();
 
     if (moments.isEmpty()) {
@@ -30,15 +29,14 @@ public class ShowAllMomentsView {
       int day = date.getDayOfMonth();
 
       System.out.print("""
-          %s. It happened in: %d/%d/%d. Title: %s. Description: %s. Emotion: %s.
+          %s. It happened in: %d/%d/%d. Title: %s. Description: %s. Emotion: %s %s.
           """.formatted(
-          momentIndex,
+          moment.id(),
           day, month, year,
           moment.title(),
           moment.description(),
+          moment.isPositive(),
           moment.emotion()));
-
-      momentIndex++;
     }
 
     System.out.println("");

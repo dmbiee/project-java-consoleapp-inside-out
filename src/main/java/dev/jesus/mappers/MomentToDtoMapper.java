@@ -10,10 +10,12 @@ public class MomentToDtoMapper {
 
   public static MomentResponseDTO toDto(Moment moment) {
     return new MomentResponseDTO(
+        moment.getId(),
         moment.getTitle(),
         moment.getDate(),
         moment.getDescription(),
-        moment.getEmotion());
+        moment.getEmotion(),
+        moment.isPositive());
   }
 
   public static List<MomentResponseDTO> toDtoList(List<Moment> moments) {

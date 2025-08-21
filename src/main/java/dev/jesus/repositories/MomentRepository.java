@@ -22,8 +22,8 @@ public class MomentRepository {
     return db.getAllMoments();
   }
 
-  public void deleteMoment(int id) {
-    db.deleteMoment(id - 1);
+  public void deleteMoment(String id) {
+    db.deleteMoment(id);
   }
 
   public <T> List<Moment> filterBy(T filterCriteria) {
