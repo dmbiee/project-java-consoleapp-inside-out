@@ -11,4 +11,5 @@ public record MomentResponseDTO(
                 String description,
                 EmotionEnum emotion,
                 boolean isPositive) {
+
 }
