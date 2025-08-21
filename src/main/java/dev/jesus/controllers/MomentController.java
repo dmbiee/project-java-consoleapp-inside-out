@@ -49,4 +49,11 @@ public class MomentController {
         .collect(Collectors.toList());
   }
 
+  public List<MomentResponseDTO> filterByIsPositive(boolean isPositive) {
+    List<Moment> filtered = repository.filterBy(isPositive);
+    return filtered.stream()
+        .map(MomentToDtoMapper::toDto)
+        .collect(Collectors.toList());
+  }
+
 }

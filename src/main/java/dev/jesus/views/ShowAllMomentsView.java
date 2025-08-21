@@ -1,6 +1,5 @@
 package dev.jesus.views;
 
-import java.time.LocalDate;
 import java.util.List;
 
 import dev.jesus.controllers.MomentController;
@@ -22,21 +21,7 @@ public class ShowAllMomentsView {
 
     System.out.println("\nList of lived moments:");
     for (MomentResponseDTO moment : moments) {
-
-      LocalDate date = moment.date();
-      int year = date.getYear();
-      int month = date.getMonthValue();
-      int day = date.getDayOfMonth();
-
-      System.out.print("""
-          %s. It happened in: %d/%d/%d. Title: %s. Description: %s. Emotion: %s %s.
-          """.formatted(
-          moment.id(),
-          day, month, year,
-          moment.title(),
-          moment.description(),
-          moment.isPositive(),
-          moment.emotion()));
+      PrintMoment.printMoment(moment);
     }
 
     System.out.println("");

@@ -11,6 +11,8 @@ public class FilterMomentMenuView extends View {
         Filter by ...:
         1. Emotion
         2. Date
+        3. Positives
+        4. Negatives
         Enter an option: """;
 
     System.out.print(filterMenu + " ");
