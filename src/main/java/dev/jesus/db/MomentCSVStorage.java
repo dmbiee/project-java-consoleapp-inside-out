@@ -10,7 +10,7 @@ public class MomentCSVStorage {
 
   private static final String DELIMITER = ";";
   private static final String NEW_LINE = "\n";
-  private static final String HEADER = "ID;Title;Date;Description;Emotion;IsPositive";
+  private static final String HEADER = "ID;Title;Date;Description;Emotion;IsPositive;RecordDate;UpdateDate;";
 
   public void exportMomentsToCsv(List<Moment> moments, String filePath) {
     try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
