@@ -76,7 +76,7 @@ Each registered movie contains the following information:
 #### 1. Clone the repository
 
 ```bash
-git clone https://github.com/jemb4/project-java-consoleapp-inside-out.git
+git clone https://github.com/dmbiee/project-java-consoleapp-inside-out.git
 cd project-java-consoleapp-inside-out
 ```
 
