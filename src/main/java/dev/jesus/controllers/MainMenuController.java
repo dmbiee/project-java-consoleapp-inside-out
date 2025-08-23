@@ -1,6 +1,7 @@
 package dev.jesus.controllers;
 
 import dev.jesus.views.AddMomentView;
+import dev.jesus.views.AddMovieView;
 import dev.jesus.views.DeleteMomentView;
 import dev.jesus.views.FilterMomentMenuView;
 import dev.jesus.views.MomentExportCSVView;
@@ -23,9 +24,12 @@ public class MainMenuController {
       FilterMomentMenuView.printFilterMenu();
 
     if (option == 5)
-      MomentExportCSVView.printCSVinfo();
+      AddMovieView.printAddMovie();
 
     if (option == 6)
+      MomentExportCSVView.printCSVinfo();
+
+    if (option == 7)
       ExitMenuController.exitFromTheProgram();
   }
 }
