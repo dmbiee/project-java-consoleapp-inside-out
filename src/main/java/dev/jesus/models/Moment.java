@@ -83,14 +83,13 @@ public class Moment {
       }
 
       String id = sb.toString();
-      System.out.println(id);
+      System.out.println("Id of your moment is " + id);
 
       this.id = id;
 
     } catch (Exception e) {
       throw new RuntimeException("Failed to generate ID", e);
     }
-    // this.id = "M-" + UUID.randomUUID();
   }
 
   public void setTitle(String title) {
