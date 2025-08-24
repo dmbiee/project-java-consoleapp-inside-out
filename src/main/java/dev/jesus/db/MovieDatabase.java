@@ -4,10 +4,10 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import dev.jesus.contracts.InterfaceDatabaseMovie;
+import dev.jesus.contracts.InterfaceDatabase;
 import dev.jesus.models.Movie;
 
-public class MovieDatabase implements InterfaceDatabaseMovie {
+public class MovieDatabase implements InterfaceDatabase<Movie> {
 
     private List<Movie> movies;
 
@@ -23,12 +23,12 @@ public class MovieDatabase implements InterfaceDatabaseMovie {
     }
 
     @Override
-    public List<Movie> getAllMovie() {
+    public List<Movie> getAllItems() {
         return movies;
     }
 
     @Override
-    public void deleteMoment(String imdbid) {
+    public void deleteItemByID(String imdbid) {
         movies.removeIf(movie -> movie.getImdbid().equals(imdbid));
     }
 }
