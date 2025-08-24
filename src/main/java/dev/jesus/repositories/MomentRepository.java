@@ -2,13 +2,12 @@ package dev.jesus.repositories;
 
 import java.util.List;
 
-import dev.jesus.contracts.InterfaceDatabase;
 import dev.jesus.db.MomentDatabase;
 import dev.jesus.models.Moment;
 
 public class MomentRepository {
 
-  private InterfaceDatabase db;
+  private MomentDatabase db;
 
   public MomentRepository() {
     this.db = new MomentDatabase();
@@ -19,11 +18,11 @@ public class MomentRepository {
   }
 
   public List<Moment> getAllMoments() {
-    return db.getAllMoments();
+    return db.getAllItems();
   }
 
   public void deleteMoment(String id) {
-    db.deleteMoment(id);
+    db.deleteItemByID(id);
   }
 
   public <T> List<Moment> filterBy(T filterCriteria) {
