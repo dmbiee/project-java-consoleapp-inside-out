@@ -2,6 +2,7 @@ package dev.jesus;
 
 import dev.jesus.controllers.HomeController;
 import dev.jesus.controllers.MovieController;
+import dev.jesus.singletons.MovieControllerSingleton;
 
 public final class App {
 
@@ -9,9 +10,10 @@ public final class App {
 
         // new HomeController();
 
-        MovieController mc = new MovieController();
+        MovieController mc = MovieControllerSingleton.getInstance();
 
-        mc.getIDMovieFromApiByTitle("Spiderman");
+        // mc.getIDMovieFromApiByTitle("Spiderman");
+        mc.getJsonStringFromApiByImdbid("tt2250912");
 
     }
 }

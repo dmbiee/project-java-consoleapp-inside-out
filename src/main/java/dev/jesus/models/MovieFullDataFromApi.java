@@ -2,7 +2,7 @@ package dev.jesus.models;
 
 import com.google.gson.annotations.SerializedName;
 
-public class MovieFromApi {
+public class MovieFullDataFromApi {
     @SerializedName("#TITLE")
     public String title;
 

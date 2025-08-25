@@ -2,8 +2,8 @@ package dev.jesus.models;
 
 import java.util.List;
 
-public class ApiResponse {
+public class SearchApiResponse {
     public boolean ok;
-    public List<MovieFromApi> description;
+    public List<MovieShortFromApi> description;
     public int errorCode;
 }
