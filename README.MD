@@ -3,7 +3,7 @@
 [![Java](https://img.shields.io/badge/Java-21-blue?logo=openjdk)](https://www.oracle.com/java/)
 [![JUnit](https://img.shields.io/badge/JUnit-5-green?logo=junit5)](https://junit.org/junit5/)
 [![Maven](https://img.shields.io/badge/Maven-3.9.6-red?logo=apachemaven)](https://maven.apache.org/)
-[![Coverage](https://img.shields.io/badge/Coverage-0%25-brightgreen?logo=codecov)](#)
+[![Coverage](https://img.shields.io/badge/Coverage-16%25-brightgreen?logo=codecov)](#)
 
 ## 📖 Project Description
 
@@ -120,7 +120,7 @@ The project uses JUnit 5.12 for unit testing, System Rules by Stefan Birkner for
 
 Example of test coverage:
 
-<img width="218" height="328" alt="test coverage %" src="" />
+<img width="218" height="328" alt="test coverage %" src="/src/assets/image.png" />
 
 ---
 
@@ -128,7 +128,196 @@ Example of test coverage:
 
 ####
 
-<img width="3840" height="2635" alt="Class diagram" src="" />
+
+```mermaid
+classDiagram
+    class View {
+        <<abstract>>
+        - static Scanner SCANNER
+    }
+
+    class AddMomentView {
+        - static MomentController CONTROLLER
+        + static void printAddMoment()
+    }
+
+    class HomeView {
+        + static printMainMenu()
+    }
+
+    class DeleteMomentView{
+        + static printDeleteMoment()
+    }
+
+    class DeleteMomentView{
+        + static printMoment()
+    }
+
+    class MomentExportCSVView {
+        - static final String CSV_FILE_PATH
+        - static MomentController CONTROLLER
+        + static printCSVinfo()
+    }
+
+    class FilterMomentView {
+        - static MomentController CONTROLLER
+        + static printFilteredList(EmotionEnum emotion)
+        + static printFilteredList(LocalDate localDate)
+    }
+
+    class MomentController {
+        - MomentRepository repository
+        - MomentCSVStorage csvStorage
+        + MomentController()
+        + void StoreMoment(MomentRequestDTO)
+        + List~MomentResponseDTO~ GetDB()
+        + void deleteMoment(String)
+        + List~MomentResponseDTO~ filterByDate(LocalDate)
+        + List~MomentResponseDTO~ filterByEmotion(EmotionEnum)
+        + List~MomentResponseDTO~ filterByIsPositive(boolean)
+        + void exportMomentsToCSV(String)
+    }
+
+    class MomentControllerSingleton {
+        - static MomentController instance
+        + static MomentController getInstance()
+    }
+
+    class MomentRepository {
+        - InterfaceDatabase db
+        + MomentRepository()
+        + void StoreMoment(Moment)
+        + List~Moment~ getAllMoments()
+        + void deleteMoment(String)
+        + <T> List~Moment~ filterBy(T)
+    }
+
+    class MomentDatabase {
+        - List~Moment~ moments
+        + MomentDatabase()
+        + void store(Moment)
+        + List~Moment~ getAllMoments()
+        + void deleteMoment(String)
+        + <T> List~Moment~ filterBy(T)
+    }
+
+    class InterfaceDatabase {
+        <<interface>>
+        + void store(Moment)
+        + List~Moment~ getAllMoments()
+        + void deleteMoment(String)
+        + <T> List~Moment~ filterBy(T)
+    }
+
+    class Moment {
+        - String id
+        - String title
+        - LocalDate date
+        - String description
+        - EmotionEnum emotion
+        - boolean isPositive
+        - LocalDateTime recordDate
+        - LocalDateTime updateDate
+        + Moment(String, LocalDate, String, EmotionEnum, boolean)
+        + String getId()
+        + String getTitle()
+        + LocalDate getDate()
+        + String getDescription()
+        + EmotionEnum getEmotion()
+        + boolean isPositive()
+        + LocalDateTime getRecordDate()
+        + LocalDateTime getUpdateDate()
+        + void setTitle(String)
+        + void setDate(LocalDate)
+        + void setDescription(String)
+        + void setEmotion(EmotionEnum)
+        + void setPositive(boolean)
+        + void setRecordDate(LocalDateTime)
+        + void setUpdateDate(LocalDateTime)
+        - void setId()
+    }
+
+    class GenerateHashId {
+        + static String generateHash(String, LocalDate, String, EmotionEnum, boolean)
+    }
+
+    class MomentRequestDTO {
+        - String title
+        - String date
+        - String description
+        - EmotionEnum emotion
+        - String isPositive
+        + MomentRequestDTO(String, String, String, EmotionEnum, String)
+    }
+
+    class MomentResponseDTO
+    class DtoToMomentMapper {
+        + static Moment toEntity(MomentRequestDTO)
+    }
+
+    class MomentToDtoMapper {
+        + static MomentResponseDTO toDto(Moment)
+        + static List~MomentResponseDTO~ toDtoList(List~Moment~)
+    }
+
+    class MomentCSVStorage {
+        + void exportMomentsToCsv(List~Moment~, String)
+    }
+
+    class EmotionEnum {
+        <<enumeration>>
+    }
+
+    class EmotionListView {
+        + static EmotionEnum printEmotionList()
+    }
+
+    class HomeView {
+        + static void printMainMenu()
+    }
+
+    %% Relaciones principales
+    View <|-- AddMomentView
+    View <|-- HomeView
+    View <|-- DeleteMomentView
+    View <|-- FilterMomentView
+
+    HomeView --> MainMenuContoller : uses
+
+    AddMomentView --> MomentController : uses
+    AddMomentView --> MomentRequestDTO : creates
+    AddMomentView --> EmotionEnum : uses
+    AddMomentView --> EmotionListView : calls
+    AddMomentView --> HomeView : calls
+    MomentControllerSingleton --> MomentController : returns instance
+    AddMomentView --> MomentControllerSingleton : calls
+    DeleteMomentView --> MomentControllerSingleton : calls
+    DeleteMomentView --> MomentController : uses
+    DeleteMomentView --> HomeView : calls
+
+    MomentExporCSVView --> MomentControler : uses
+    MomentExporCSVView --> MomentControllerSingleton : calls
+    MomentExporCSVView --> HomeView : calls
+
+    FilterMomentView --> MomentControler : uses
+    FilterMomentView --> MomentControllerSingleton : calls
+    FilterMomentView --> HomeView : calls
+
+
+    Moment --> EmotionEnum : uses
+    Moment --> GenerateHashId : calls
+
+    MomentRepository --> InterfaceDatabase : depends
+    MomentDatabase ..|> InterfaceDatabase : implements
+    MomentController --> MomentRepository : uses
+    MomentController --> MomentCSVStorage : uses
+    MomentController --> DtoToMomentMapper : uses
+    MomentController --> MomentToDtoMapper : uses
+    MomentController --> MomentRequestDTO : uses
+    MomentController --> MomentResponseDTO : returns
+
+
+```
 
 ---
 
