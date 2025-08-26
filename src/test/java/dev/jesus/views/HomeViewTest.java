@@ -1,16 +1,9 @@
 package dev.jesus.views;
 
-import dev.jesus.controllers.MainMenuController;
 import org.junit.jupiter.api.*;
-import org.mockito.MockedStatic;
 
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.containsString;
-import static org.mockito.Mockito.*;
 
 class HomeViewTest {
 
