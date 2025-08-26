@@ -7,7 +7,12 @@ public class AddMovieView extends View {
 
     private static MovieService SERVICE = MovieServiceSingleton.getInstance();
 
-    public static void printAddMovie() {
+    public static void addMovie() {
+        SERVICE.buildMovieDto();
+        HomeView.printMainMenu();
+    }
+
+    public static String printAddMovie() {
 
         String messageText = "What movie did you watch?";
         String inputText = "Enter the movie title: ";
@@ -18,7 +23,7 @@ public class AddMovieView extends View {
 
         String title = SCANNER.next();
 
-        System.out.println(title);
+        return title;
 
     }
 
@@ -38,4 +43,5 @@ public class AddMovieView extends View {
         SERVICE.setIsCorrectMovie(answer);
 
     }
+
 }

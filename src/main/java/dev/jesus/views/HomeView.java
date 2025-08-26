@@ -13,9 +13,11 @@ public class HomeView extends View {
         3. Delete a moment
         4. Filter the moments
         5. Add movie
-        6. Export to CSV
+        6. See all watched movie
+        7. Delete a movie
+        8. Export to CSV
 
-        7. Exit
+        9. Exit
 
         Select an option:  """;
 
