@@ -1,8 +1,7 @@
 package dev.jesus;
 
-import dev.jesus.controllers.HomeController;
-import dev.jesus.controllers.MovieController;
-import dev.jesus.singletons.MovieControllerSingleton;
+import dev.jesus.services.MovieService;
+import dev.jesus.singletons.MovieServiceSingleton;
 
 public final class App {
 
@@ -10,10 +9,11 @@ public final class App {
 
         // new HomeController();
 
-        MovieController mc = MovieControllerSingleton.getInstance();
+        MovieService ms = MovieServiceSingleton.getInstance();
 
         // mc.getIDMovieFromApiByTitle("Spiderman");
-        mc.getJsonStringFromApiByImdbid("tt2250912");
+        String rs = ms.getJsonStringFromApiByImdbid("tt2250912");
+        ms.getMovieDataFromJson(rs);
 
     }
 }

@@ -1,11 +1,11 @@
 package dev.jesus.views;
 
-import dev.jesus.controllers.MovieController;
-import dev.jesus.singletons.MovieControllerSingleton;
+import dev.jesus.services.MovieService;
+import dev.jesus.singletons.MovieServiceSingleton;
 
 public class AddMovieView extends View {
 
-    private static MovieController CONTROLLER = MovieControllerSingleton.getInstance();
+    private static MovieService SERVICE = MovieServiceSingleton.getInstance();
 
     public static void printAddMovie() {
 
@@ -35,7 +35,7 @@ public class AddMovieView extends View {
 
         String answer = SCANNER.next();
 
-        CONTROLLER.setIsCorrectMovie(answer);
+        SERVICE.setIsCorrectMovie(answer);
 
     }
 }
