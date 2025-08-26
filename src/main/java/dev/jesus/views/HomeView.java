@@ -8,12 +8,16 @@ public class HomeView extends View {
 
     String mainMenu = """
         My diary:
-        1. Add momentum
+        1. Add moment
         2. See all available times
         3. Delete a moment
         4. Filter the moments
-        5. Export to CSV
-        6. Exit
+        5. Add movie
+        6. See all watched movie
+        7. Delete a movie
+        8. Export to CSV
+
+        9. Exit
 
         Select an option:  """;
 

@@ -13,6 +13,7 @@ public class FilterMomentView extends View {
   private static MomentController CONTROLLER = MomentControllerSingleton.getInstance();
 
   public static void printFilteredList(EmotionEnum emotion) {
+
     List<MomentResponseDTO> moments = CONTROLLER.filterByEmotion(emotion);
 
     if (moments.isEmpty()) {

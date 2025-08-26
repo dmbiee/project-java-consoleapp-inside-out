@@ -9,7 +9,7 @@ import dev.jesus.contracts.InterfaceDatabase;
 import dev.jesus.models.EmotionEnum;
 import dev.jesus.models.Moment;
 
-public class MomentDatabase implements InterfaceDatabase {
+public class MomentDatabase implements InterfaceDatabase<Moment> {
 
   private List<Moment> moments;
 
@@ -24,16 +24,15 @@ public class MomentDatabase implements InterfaceDatabase {
   }
 
   @Override
-  public List<Moment> getAllMoments() {
+  public List<Moment> getAllItems() {
     return moments;
   }
 
   @Override
-  public void deleteMoment(String id) {
+  public void deleteItemByID(String id) {
     moments.removeIf(moment -> moment.getId().equals(id));
   }
 
-  @Override
   public <T> List<Moment> filterBy(T filterCriteria) {
     List<Moment> filteredList = new ArrayList<>();
 

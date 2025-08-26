@@ -2,14 +2,11 @@ package dev.jesus.contracts;
 
 import java.util.List;
 
-import dev.jesus.models.Moment;
+public interface InterfaceDatabase<T> {
+  public void store(T item);
 
-public interface InterfaceDatabase {
-  public void store(Moment moment);
+  List<T> getAllItems();
 
-  List<Moment> getAllMoments();
+  public void deleteItemByID(String id);
 
-  public void deleteMoment(String id);
-
-  <T> List<Moment> filterBy(T filterCriteria);
 }
